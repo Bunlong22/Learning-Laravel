@@ -153,6 +153,11 @@ move_uploaded_file($image->getPathName(), $upload . $filename);
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+    	$image_path = 'img/products/'.$product->image;
+    	File::delete($image_path);
+    	$product->delete();
+    	Session::flash('product_delete','Data is deleted.');
+    	return redirect('product');
     }
 }

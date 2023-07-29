@@ -31,7 +31,7 @@
          <div>{{ $product->description }}</div>
      </td>
      <td>
-         <div class="text-center">{{ Html::image('/img/'.$product->image, $product->name, array('width'=>'150', 'height'=> '100')) }}</div>
+         <div class="text-center">{{ Html::image('/img/products/'.$product->image, $product->name, array('width'=>'150', 'height'=> '100')) }}</div>
      </td>
      <td>
          <div class="text-center">${{ $product->price }}</div>

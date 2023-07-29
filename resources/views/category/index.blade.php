@@ -3,7 +3,7 @@
 @if (count($categories) > 0)
 <div>
     <h1>Category</h1>
-<a href="{{url ('category/create')}}" >
+    <a href="{{url ('category/create')}}" >
     <button class="btn btn-success">Cretae New</button></a>
     <br></br>
 </div>
@@ -26,11 +26,11 @@
                 </td>
                 <td><a class="btn btn-primary" href="{!! url('category/' . $category->id . '/edit') !!}">Edit</a></td>
                 <td>
-                    {!! Form::open(array('url'=>'category/'. $category->id, 'method'=>'DELETE')) !!}
-                    {!! csrf_field() !!}
-                    {!! method_field('DELETE') !!}
-                    <button class="btn btn-danger">Delete</button>
-                    {!! Form::close() !!}
+                {!! Form::open(array('url'=>'/category/'. $category->id, 'method'=>'DELETE')) !!}
+{!! csrf_field() !!}
+{!! method_field('DELETE') !!}
+<button class="btn btn-danger delete">Delete</button>
+{!! Form::close() !!}
                 </td>
             </tr>	
             @endforeach

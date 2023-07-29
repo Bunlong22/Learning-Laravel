@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Validator;
 use Session;
+use File;
 
 
 class ProductController extends Controller

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Validator;
+use Session;
 
 
 class ProductController extends Controller

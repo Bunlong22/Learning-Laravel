@@ -60,7 +60,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.show')->with('category', $category);
     }
 
     /**
@@ -112,7 +113,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        Session::flash('category_delete','Category is deleted.');
+        Session::flash('category_delete', 'Category is deleted.');
         return redirect('category');
     }
 }

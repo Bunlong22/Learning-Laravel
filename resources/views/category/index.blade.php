@@ -9,10 +9,11 @@
 </div>
 
     <table class="table table-bordered">
-        <thead>
+        <thead class="text-center">
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Details</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -28,12 +29,15 @@
                 <td>
                     {!! $category->description !!}
                 </td>
-                <td><a class="btn btn-primary" href="{!! url('category/' . $category->id . '/edit') !!}">Edit</a></td>
-                <td>
-                {!! Form::open(array('url'=>'/category/'. $category->id, 'method'=>'DELETE')) !!}
+                <td class="text-center">
+                <a class="btn btn-primary" href="{{ url('/category/' . $category->id) }}">Details</a>    
+                
+                <td class="text-center"><a class="btn btn-primary" href="{!! url('category/' . $category->id . '/edit') !!}">Edit</a></td>
+                <td  class="text-center">
+ {!! Form::open(array('url'=>'/category/'. $category->id, 'method'=>'DELETE')) !!}
 {!! csrf_field() !!}
 {!! method_field('DELETE') !!}
-<button class="btn btn-danger delete">Delete</button>
+<button class="btn btn-danger delete">Delete</button></td>
 {!! Form::close() !!}
                 </td>
                         

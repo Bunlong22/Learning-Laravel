@@ -111,7 +111,38 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+			'name' => 'required|max:20|min:3',
+			'price' => 'required|max:20|min:2',
+			'image' => 'mimes:jpg,jpeg,png,gif',
+			'description' => 'required|max:1000|min:5',
+		]);
+
+		if ($validator->fails()) {
+			return redirect('product/'.$id.'/edit')
+				->withInput()
+				->withErrors($validator);
+		}
+        $product = Product::find($id);
+		// Create The Post
+		if($request->file('image') != ""){
+            $image = $request->file('image');
+            $upload = 'img/products/';
+            $filename = time().$image->getClientOriginalName();
+move_uploaded_file($image->getPathName(), $upload . $filename);
+		}
+		
+		$product->name = $request->Input('name');
+		$product->price = $request->Input('price');
+		if(isset($filename)){
+		    $product->image = $filename;
+		}
+        
+		$product->description = $request->Input('description');
+		$product->save();
+
+		Session::flash('product_update','Data is updated');
+		return redirect('product/'.$product->id.'/edit');
     }
 
     /**

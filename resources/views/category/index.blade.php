@@ -8,8 +8,8 @@
     <br></br>
 </div>
 
-    <table class="table table-bordered">
-        <thead class="text-center">
+    <table class="table table-bordered text-center">
+        <thead>
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
@@ -29,11 +29,11 @@
                 <td>
                     {!! $category->description !!}
                 </td>
-                <td class="text-center">
+                <td>
                 <a class="btn btn-primary" href="{{ url('/category/' . $category->id) }}">Details</a>    
                 
-                <td class="text-center"><a class="btn btn-primary" href="{!! url('category/' . $category->id . '/edit') !!}">Edit</a></td>
-                <td  class="text-center">
+                <td><a class="btn btn-primary" href="{!! url('category/' . $category->id . '/edit') !!}">Edit</a></td>
+                <td >
  {!! Form::open(array('url'=>'/category/'. $category->id, 'method'=>'DELETE')) !!}
 {!! csrf_field() !!}
 {!! method_field('DELETE') !!}

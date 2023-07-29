@@ -8,8 +8,8 @@
     <br></br>
 </div>
                            
-<table class="table table-bordered">
-        <thead class="text-center">
+<table class="table table-bordered text-center">
+        <thead>
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
@@ -32,15 +32,16 @@
          <div>{{ $product->description }}</div>
      </td>
      <td>
-         <div class="text-center">{{ Html::image('/img/products/'.$product->image, $product->name, array('width'=>'150', 'height'=> '100')) }}</div>
+         <div>{{ Html::image('/img/products/'.$product->image, $product->name, array('width'=>'150', 'height'=> '100')) }}</div>
      </td>
      <td>
-         <div class="text-center">${{ $product->price }}</div>
+         <div>${{ $product->price }}</div>
      </td>
+     <td>
+                <a class="btn btn-primary" href="{{ url('product/' . $product->id) }}">Details</a>  
+     <td><a class="btn btn-primary" href="{{ url('product/' . $product->id . '/edit') }}">Edit</a></td>
 
-     <td class="text-center"><a class="btn btn-primary" href="{{ url('product/' . $product->id . '/edit') }}">Edit</a></td>
-
-     <td class="text-center">
+     <td>
          {{ Form::open(array('url'=>'product/'. $product->id, 'method'=>'DELETE')) }}
          {{ csrf_field() }}
          {{ method_field('DELETE') }}

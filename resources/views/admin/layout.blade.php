@@ -111,8 +111,8 @@
                     <div class="container-fluid px-4">
                         <br>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Static Navigation</li>
+                            <li class="breadcrumb-item"><a  href="{{url('/category')}}">Category</a></li>
+                            <li class="breadcrumb-item"><a  href="{{url('/product')}}">Product</a></li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">

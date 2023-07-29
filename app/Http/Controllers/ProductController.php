@@ -94,7 +94,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = array();
+        foreach (Category::all() as $category) {
+            $categories[$category->id] = $category->name;
+        }
+        $product = Product::findOrFail($id);
+        return view('product.edit')->with('product', $product)->with('categories', $categories);
     }
 
     /**

@@ -9,15 +9,16 @@
 </div>
                            
 <table class="table table-bordered">
-                <thead>
+        <thead class="text-center">
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
         <th>Image</th>
         <th>Price</th>
+        <th>Details</th>
         <th>Edit</th>
         <th>Delete</th>
-            </thead>
+        </thead>
             <tbody>
  @foreach ($products as $product)
  <tr>
@@ -37,9 +38,9 @@
          <div class="text-center">${{ $product->price }}</div>
      </td>
 
-     <td><a class="btn btn-primary" href="{{ url('product/' . $product->id . '/edit') }}">Edit</a></td>
+     <td class="text-center"><a class="btn btn-primary" href="{{ url('product/' . $product->id . '/edit') }}">Edit</a></td>
 
-     <td>
+     <td class="text-center">
          {{ Form::open(array('url'=>'product/'. $product->id, 'method'=>'DELETE')) }}
          {{ csrf_field() }}
          {{ method_field('DELETE') }}
@@ -48,12 +49,7 @@
      </td>
  </tr>
  @endforeach
-                            </tbody> @if(Session::has('product_delete'))
-                <div class="alert alert-warning alert-dismissible">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    <strong>Delete!</strong> {!! session('product_delete') !!}
-                </div>
-                @endif
+</tbody> 
     </table>
 @endif
 @endsection

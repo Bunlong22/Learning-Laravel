@@ -44,3 +44,32 @@
     </table>
 @endif
 @endsection
+<script>
+    $(".delete").click(function() {
+        var form = $(this).closest('form');
+        $('<div></div>').appendTo('body')
+            .html('<div><h6> Are you sure ?</h6></div>')
+            .dialog({
+                modal: true,
+                title: 'Delete message',
+                zIndex: 10000,
+                autoOpen: true,
+                width: 'auto',
+                resizable: false,
+                buttons: {
+                    Yes: function() {
+                        $(this).dialog('close');
+                        form.submit();
+                    },
+                    No: function() {
+                        $(this).dialog("close");
+                        return false;
+                    }
+                },
+                close: function(event, ui) {
+                    $(this).remove();
+                }
+            });
+        return false;
+    });
+</script>

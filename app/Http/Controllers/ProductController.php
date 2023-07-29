@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 use Validator;
 use Session;
 
@@ -29,10 +30,10 @@ class ProductController extends Controller
     public function create()
     {
         $categories = array();
-    	foreach (Category::all() as $category) {
-    		$categories[$category->id] = $category->name;
-    	}
-    	return view('product.create')->with('categories', $categories);
+        foreach (Category::all() as $category) {
+            $categories[$category->id] = $category->name;
+        }
+        return view('product.create')->with('categories', $categories);
     }
 
     /**

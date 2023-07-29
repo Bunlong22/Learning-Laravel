@@ -25,7 +25,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = array();
+    	foreach (Category::all() as $category) {
+    		$categories[$category->id] = $category->name;
+    	}
+    	return view('product.create')->with('categories', $categories);
     }
 
     /**
